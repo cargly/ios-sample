@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		195955B217D03BFC00EC4343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195955B117D03BFC00EC4343 /* Foundation.framework */; };
+		195955B717D03BFC00EC4343 /* CarglyCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 195955B617D03BFC00EC4343 /* CarglyCore.h */; };
+		195955B917D03BFC00EC4343 /* CarglyCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 195955B817D03BFC00EC4343 /* CarglyCore.m */; };
+		195955C017D03BFC00EC4343 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195955BF17D03BFC00EC4343 /* XCTest.framework */; };
+		195955C117D03BFC00EC4343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195955B117D03BFC00EC4343 /* Foundation.framework */; };
+		195955C317D03BFC00EC4343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195955C217D03BFC00EC4343 /* UIKit.framework */; };
+		195955C617D03BFC00EC4343 /* libCarglyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 195955AE17D03BFC00EC4343 /* libCarglyCore.a */; };
+		195955CC17D03BFC00EC4343 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 195955CA17D03BFC00EC4343 /* InfoPlist.strings */; };
+		195955CE17D03BFC00EC4343 /* CarglyCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 195955CD17D03BFC00EC4343 /* CarglyCoreTests.m */; };
+		1983123E17D0DF9300A64C2B /* CarglyApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983123D17D0DF9300A64C2B /* CarglyApiRequest.m */; };
+		1983124117D0E95800A64C2B /* CarglyApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983124017D0E95800A64C2B /* CarglyApi.m */; };
+		1983124517D0F08C00A64C2B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983124417D0F08C00A64C2B /* Reachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		195955C417D03BFC00EC4343 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 195955A617D03BFC00EC4343 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 195955AD17D03BFC00EC4343;
+			remoteInfo = CarglyCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		195955AC17D03BFC00EC4343 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				195955B717D03BFC00EC4343 /* CarglyCore.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		195955AE17D03BFC00EC4343 /* libCarglyCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCarglyCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		195955B117D03BFC00EC4343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		195955B517D03BFC00EC4343 /* CarglyCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarglyCore-Prefix.pch"; sourceTree = "<group>"; };
+		195955B617D03BFC00EC4343 /* CarglyCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarglyCore.h; sourceTree = "<group>"; };
+		195955B817D03BFC00EC4343 /* CarglyCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarglyCore.m; sourceTree = "<group>"; };
+		195955BE17D03BFC00EC4343 /* CarglyCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarglyCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		195955BF17D03BFC00EC4343 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		195955C217D03BFC00EC4343 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		195955C917D03BFC00EC4343 /* CarglyCoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarglyCoreTests-Info.plist"; sourceTree = "<group>"; };
+		195955CB17D03BFC00EC4343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		195955CD17D03BFC00EC4343 /* CarglyCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarglyCoreTests.m; sourceTree = "<group>"; };
+		195955EA17D0509000EC4343 /* CarglySyncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarglySyncDelegate.h; sourceTree = "<group>"; };
+		1983123C17D0DF9300A64C2B /* CarglyApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarglyApiRequest.h; sourceTree = "<group>"; };
+		1983123D17D0DF9300A64C2B /* CarglyApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarglyApiRequest.m; sourceTree = "<group>"; };
+		1983123F17D0E95800A64C2B /* CarglyApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarglyApi.h; sourceTree = "<group>"; };
+		1983124017D0E95800A64C2B /* CarglyApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarglyApi.m; sourceTree = "<group>"; };
+		1983124217D0E96700A64C2B /* CarglyApiRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarglyApiRequestDelegate.h; sourceTree = "<group>"; };
+		1983124317D0F08C00A64C2B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1983124417D0F08C00A64C2B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		195955AB17D03BFC00EC4343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				195955B217D03BFC00EC4343 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		195955BB17D03BFC00EC4343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				195955C617D03BFC00EC4343 /* libCarglyCore.a in Frameworks */,
+				195955C017D03BFC00EC4343 /* XCTest.framework in Frameworks */,
+				195955C317D03BFC00EC4343 /* UIKit.framework in Frameworks */,
+				195955C117D03BFC00EC4343 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195955A517D03BFC00EC4343 = {
+			isa = PBXGroup;
+			children = (
+				195955B317D03BFC00EC4343 /* CarglyCore */,
+				195955C717D03BFC00EC4343 /* CarglyCoreTests */,
+				195955B017D03BFC00EC4343 /* Frameworks */,
+				195955AF17D03BFC00EC4343 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		195955AF17D03BFC00EC4343 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				195955AE17D03BFC00EC4343 /* libCarglyCore.a */,
+				195955BE17D03BFC00EC4343 /* CarglyCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		195955B017D03BFC00EC4343 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				195955B117D03BFC00EC4343 /* Foundation.framework */,
+				195955BF17D03BFC00EC4343 /* XCTest.framework */,
+				195955C217D03BFC00EC4343 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		195955B317D03BFC00EC4343 /* CarglyCore */ = {
+			isa = PBXGroup;
+			children = (
+				195955B417D03BFC00EC4343 /* Supporting Files */,
+				195955B617D03BFC00EC4343 /* CarglyCore.h */,
+				195955B817D03BFC00EC4343 /* CarglyCore.m */,
+				195955EA17D0509000EC4343 /* CarglySyncDelegate.h */,
+				1983123F17D0E95800A64C2B /* CarglyApi.h */,
+				1983124017D0E95800A64C2B /* CarglyApi.m */,
+				1983124217D0E96700A64C2B /* CarglyApiRequestDelegate.h */,
+				1983123C17D0DF9300A64C2B /* CarglyApiRequest.h */,
+				1983123D17D0DF9300A64C2B /* CarglyApiRequest.m */,
+				1983124317D0F08C00A64C2B /* Reachability.h */,
+				1983124417D0F08C00A64C2B /* Reachability.m */,
+			);
+			path = CarglyCore;
+			sourceTree = "<group>";
+		};
+		195955B417D03BFC00EC4343 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				195955B517D03BFC00EC4343 /* CarglyCore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		195955C717D03BFC00EC4343 /* CarglyCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				195955CD17D03BFC00EC4343 /* CarglyCoreTests.m */,
+				195955C817D03BFC00EC4343 /* Supporting Files */,
+			);
+			path = CarglyCoreTests;
+			sourceTree = "<group>";
+		};
+		195955C817D03BFC00EC4343 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				195955C917D03BFC00EC4343 /* CarglyCoreTests-Info.plist */,
+				195955CA17D03BFC00EC4343 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		195955AD17D03BFC00EC4343 /* CarglyCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 195955D117D03BFC00EC4343 /* Build configuration list for PBXNativeTarget "CarglyCore" */;
+			buildPhases = (
+				195955AA17D03BFC00EC4343 /* Sources */,
+				195955AB17D03BFC00EC4343 /* Frameworks */,
+				195955AC17D03BFC00EC4343 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarglyCore;
+			productName = CarglyCore;
+			productReference = 195955AE17D03BFC00EC4343 /* libCarglyCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		195955BD17D03BFC00EC4343 /* CarglyCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 195955D417D03BFC00EC4343 /* Build configuration list for PBXNativeTarget "CarglyCoreTests" */;
+			buildPhases = (
+				195955BA17D03BFC00EC4343 /* Sources */,
+				195955BB17D03BFC00EC4343 /* Frameworks */,
+				195955BC17D03BFC00EC4343 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				195955C517D03BFC00EC4343 /* PBXTargetDependency */,
+			);
+			name = CarglyCoreTests;
+			productName = CarglyCoreTests;
+			productReference = 195955BE17D03BFC00EC4343 /* CarglyCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		195955A617D03BFC00EC4343 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Granite Dome LLC";
+			};
+			buildConfigurationList = 195955A917D03BFC00EC4343 /* Build configuration list for PBXProject "CarglyCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 195955A517D03BFC00EC4343;
+			productRefGroup = 195955AF17D03BFC00EC4343 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				195955AD17D03BFC00EC4343 /* CarglyCore */,
+				195955BD17D03BFC00EC4343 /* CarglyCoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		195955BC17D03BFC00EC4343 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				195955CC17D03BFC00EC4343 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		195955AA17D03BFC00EC4343 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1983123E17D0DF9300A64C2B /* CarglyApiRequest.m in Sources */,
+				195955B917D03BFC00EC4343 /* CarglyCore.m in Sources */,
+				1983124517D0F08C00A64C2B /* Reachability.m in Sources */,
+				1983124117D0E95800A64C2B /* CarglyApi.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		195955BA17D03BFC00EC4343 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				195955CE17D03BFC00EC4343 /* CarglyCoreTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		195955C517D03BFC00EC4343 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 195955AD17D03BFC00EC4343 /* CarglyCore */;
+			targetProxy = 195955C417D03BFC00EC4343 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		195955CA17D03BFC00EC4343 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				195955CB17D03BFC00EC4343 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		195955CF17D03BFC00EC4343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		195955D017D03BFC00EC4343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		195955D217D03BFC00EC4343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CarglyCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CarglyCore/CarglyCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		195955D317D03BFC00EC4343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CarglyCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CarglyCore/CarglyCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		195955D517D03BFC00EC4343 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CarglyCore/CarglyCore-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CarglyCoreTests/CarglyCoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		195955D617D03BFC00EC4343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CarglyCore/CarglyCore-Prefix.pch";
+				INFOPLIST_FILE = "CarglyCoreTests/CarglyCoreTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		195955A917D03BFC00EC4343 /* Build configuration list for PBXProject "CarglyCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				195955CF17D03BFC00EC4343 /* Debug */,
+				195955D017D03BFC00EC4343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		195955D117D03BFC00EC4343 /* Build configuration list for PBXNativeTarget "CarglyCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				195955D217D03BFC00EC4343 /* Debug */,
+				195955D317D03BFC00EC4343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		195955D417D03BFC00EC4343 /* Build configuration list for PBXNativeTarget "CarglyCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				195955D517D03BFC00EC4343 /* Debug */,
+				195955D617D03BFC00EC4343 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 195955A617D03BFC00EC4343 /* Project object */;
+}
