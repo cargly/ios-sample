@@ -1,0 +1,7 @@
+*~.nib
+*.lock
+*.swp
+.Trashes
+.DS_Store
+xcuserdata
+build/
