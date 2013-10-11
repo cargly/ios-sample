@@ -224,6 +224,7 @@
 {
     // skip sync log entries
     if ([[object entity].name isEqualToString:@"SyncLog"]) return;
+    if ([[object entity].name isEqualToString:@"WorkDetail"]) return;
     
     NSString* localId = [self getUriStringForManagedObject:object];
 
@@ -371,7 +372,7 @@
          {
              [dest setValue:[src objectForKey:@"odometer"] forKey:@"odometer"];
              [dest setValue:[src objectForKey:@"name"] forKey:@"name"];
-             [dest setValue:[src objectForKey:@"postalCode"] forKey:@"postalCode"];
+             [dest setValue:[src objectForKey:@"postal_code"] forKey:@"postalCode"];
          }];
     }
     else if ([type isEqualToString:@"user"]) {

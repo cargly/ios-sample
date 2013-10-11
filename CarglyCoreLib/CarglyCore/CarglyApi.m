@@ -138,13 +138,7 @@
                     self.userId = [obj objectForKey:@"url"];
                     self.email = [obj objectForKey:@"email"];
                     [self storeConfig];
-                    @try {
-                        self.syncingChanges = YES;
-                        [syncDelegate carglyUpdateObject:obj];
-                    }
-                    @finally {
-                        self.syncingChanges = NO;
-                    }
+                    [syncDelegate carglyUpdateObject:obj];
                 }
                 else {
                     // it looks like this app was previously sync'd with a different user's account
