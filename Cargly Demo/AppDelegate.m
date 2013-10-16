@@ -417,7 +417,7 @@
                      NSManagedObject* localDetail = [NSEntityDescription insertNewObjectForEntityForName:@"WorkDetail"
                                                                                   inManagedObjectContext:self.managedObjectContext];
                      [localDetail setValue:[detail objectForKey:@"cost"] forKey:@"cost"];
-                     [localDetail setValue:[detail objectForKey:@"maintenance_key"] forKey:@"workCode"];
+                     [localDetail setValue:[detail objectForKey:@"maintenance_kind"] forKey:@"workCode"];
                      [localDetail setValue:[detail objectForKey:@"notes"] forKey:@"details"];
                      [localDetail setValue:[detail objectForKey:@"other_name"] forKey:@"otherLabel"];
                      [[dest mutableSetValueForKey:@"workDetails"] addObject:localDetail];
@@ -499,7 +499,7 @@
                              for (id srcDetail in srcDetails) {
                                  NSMutableDictionary* destDetail = [[NSMutableDictionary alloc] init];
                                  [destDetail setValue:[srcDetail valueForKey:@"cost"] forKey:@"cost"];
-                                 [destDetail setValue:[srcDetail valueForKey:@"workCode"] forKey:@"maintenance_key"];
+                                 [destDetail setValue:[srcDetail valueForKey:@"workCode"] forKey:@"maintenance_kind"];
                                  [destDetail setValue:[srcDetail valueForKey:@"details"] forKey:@"notes"];
                                  [destDetail setValue:[srcDetail valueForKey:@"otherLabel"] forKey:@"other_name"];
                                  [destDetails addObject:destDetail];
@@ -522,7 +522,7 @@
                              [dest setObject:[CarglyCore toCarglyTimestamp:[src valueForKey:@"completedTime"]] forKey:@"end_time"];
                          }
                          if ([src valueForKey:@"completedOdometer"]) [dest setObject:[src valueForKey:@"completedOdometer"] forKey:@"end_odo"];
-                         [dest setObject:@"None" forKey:@"deductible_type"];
+                         [dest setObject:@"NONE" forKey:@"deductible_type"];
                      }];
     return obj;
 }
@@ -538,7 +538,7 @@
     if ([[result objectForKey:@"status"] isEqual:@"success"]) {
         NSManagedObject* localObj = [self findByUriString:[result objectForKey:@"localId"]];
         if (localObj) {
-            NSString* remoteUrl = [result objectForKey:@"url"];
+            NSString* remoteUrl = [result objectForKey:@"path"];
             [localObj setValue:remoteUrl forKey:@"cid"];
             [localObj setValue:[result objectForKey:@"version"] forKey:@"cver"];
         }
@@ -575,7 +575,7 @@
                       withCopier:(void (^)(NSString* type, NSManagedObject* dest, NSDictionary* src))copier
 {
     // look for car. if found, update it, otherwise create it
-    NSString* remoteUrl = [remoteObj objectForKey:@"url"];
+    NSString* remoteUrl = [remoteObj objectForKey:@"path"];
     NSManagedObject* localObj = [self findOrCreateEntityByAttr:entityName withAttr:@"cid" withValue: remoteUrl allowCreate:TRUE];
 
     if (localObj) {
@@ -583,13 +583,15 @@
         NSString* localId = [self getUriStringForManagedObject:localObj];
         NSManagedObject* syncLogEntry = [self findFirstOrCreateEntityByPredicate:@"SyncLog"
                                                                    withPredicate:[NSString stringWithFormat:@"(localId == '%@')", localId] allowCreate:FALSE];
-        
+        BOOL deleteSyncEntry = NO;
         if ([remoteObj objectForKey:@"deleted"]) {
+            deleteSyncEntry = YES;
             [self.managedObjectContext deleteObject: localObj];
         }
         // verfiy the version is newer
         else if ([CarglyCore versionAllowsUpdate:[remoteObj objectForKey:@"version"] localVersion:[localObj valueForKey:@"cver"]])
         {
+            deleteSyncEntry = YES;
             // if this object is related to a car, fix up the relationship
             if ([remoteObj objectForKey:@"vehicle_url"]) {
                 NSManagedObject* localCar = [self findOrCreateEntityByAttr:@"Vehicle"
@@ -606,7 +608,7 @@
         }
         
         // server changes always supercede client changes, so if a synclog record exists, delete it
-        if (syncLogEntry) {
+        if (syncLogEntry && deleteSyncEntry) {
             // if the entity is a user, then don't delete the sync entry.
             if (![[syncLogEntry valueForKey:@"type"] isEqualToString:@"user"]) {
                 [self.managedObjectContext deleteObject: syncLogEntry];
@@ -642,7 +644,7 @@
         NSMutableDictionary* remoteObj = [[NSMutableDictionary alloc] init];
         if ([[syncLogEntry valueForKey:@"op"] isEqualToString:@"deleted"]) {
             [remoteObj setObject:objType forKey:@"type"];
-            [remoteObj setObject:[syncLogEntry valueForKey:@"cid"] forKey:@"url"];
+            [remoteObj setObject:[syncLogEntry valueForKey:@"cid"] forKey:@"path"];
             [remoteObj setObject:[syncLogEntry valueForKey:@"localId"] forKey:@"localId"];
             [remoteObj setObject:[syncLogEntry valueForKey:@"cver"] forKey:@"version"];
             [remoteObj setObject:@"true" forKey:@"deleted"];
@@ -655,11 +657,11 @@
                 [remoteObj setObject:localIdString forKey:@"localId"];
                 [remoteObj setObject:objType forKey:@"type"];
                 if ([localObj valueForKey:@"cid"]) {
-                    [remoteObj setObject:[localObj valueForKey:@"cid"] forKey:@"url"];
+                    [remoteObj setObject:[localObj valueForKey:@"cid"] forKey:@"path"];
                 }
                 else if (parentAttr) {
                     NSManagedObject* localParent = [localObj valueForKey:parentAttr];
-                    [remoteObj setObject:[localParent valueForKey:@"cid"] forKey:@"url"];
+                    [remoteObj setObject:[localParent valueForKey:@"cid"] forKey:@"path"];
                 }
                 [remoteObj setObject:[localObj valueForKey:@"cver"] forKey:@"version"];
                 

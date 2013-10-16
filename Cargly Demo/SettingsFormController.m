@@ -55,6 +55,7 @@
     
     // define cells
     NSMutableArray* section = [self addFormSection];
+    [self addCellToSection:section cellId:@"emailCell" withAttr:@"email" withVisibility:TRUE];    
     [self addCellToSection:section cellId:@"distanceUnitsCell" withAttr:@"distanceUnits" withVisibility:TRUE];
     [self addCellToSection:section cellId:@"fuelUnitsCell" withAttr:@"fuelUnits" withVisibility:TRUE];
 }

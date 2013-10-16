@@ -264,7 +264,7 @@
 
 +(NSString*) carglyBaseUrl {
 	static NSString* carglyBaseUrl = @"http://localhost:8888";
-	//static NSString* carglyBaseUrl = @"https://carglyonline.appspot.com";
+	//static NSString* carglyBaseUrl = @"https://carglyplatform.appspot.com";
 	return carglyBaseUrl;
 }
 

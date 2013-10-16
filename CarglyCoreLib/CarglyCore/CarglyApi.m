@@ -55,6 +55,7 @@
 
 -(void) sync {
     if (![self isDisconnected]) {
+        self.retryCount = 0;
         if (!self.authToken) {
             [self openAuthUrl];
         }
@@ -132,10 +133,10 @@
                 self.hasMoreUpdates = b && [b isEqual:@"true"];
             }
             else if ([type isEqual: @"user"]) {
-                id userId = [obj objectForKey:@"url"];
+                id userId = [obj objectForKey:@"path"];
                 // if we don't have a user stored yet, the user ids match, or we haven't sync'd yet, let this sync proceed.
                 if (self.userId == nil || [self.userId isEqual:userId] || self.syncBookmark == nil) {
-                    self.userId = [obj objectForKey:@"url"];
+                    self.userId = [obj objectForKey:@"path"];
                     self.email = [obj objectForKey:@"email"];
                     [self storeConfig];
                     [syncDelegate carglyUpdateObject:obj];
@@ -174,7 +175,6 @@
     // must have a bookmark at this point
     if (self.syncBookmark == nil) return;
 
-
     // get items to send
     self.itemsToBulkUpdate = [[NSMutableArray alloc] init];
     NSDictionary* item = nil;
@@ -190,7 +190,7 @@
             item = [syncDelegate carglyGetNewParentObject];
             // nil will terminate the, empty dictionary is just ignored
             if (item && [item count] > 0) {
-                if (![item valueForKey:@"url"]) {
+                if (![item valueForKey:@"path"]) {
                     hasNewVehicle = TRUE;
                 }
                 [self.itemsToBulkUpdate addObject:item];
@@ -258,8 +258,16 @@
         [self bulkUpdate];
     }
     else {
-        self.syncBookmark = nil;
-        [self getUpdates];
+        self.retryCount++;
+        if (self.retryCount > 2) {
+            [syncDelegate carglyError];
+        }
+        else {
+            // reset and try the sync again
+            self.syncBookmark = nil;
+            [syncDelegate carglySyncStart];
+            [self getUpdates];
+        }
     }
 }
 

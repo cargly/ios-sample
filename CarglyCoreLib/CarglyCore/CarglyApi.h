@@ -49,6 +49,8 @@ typedef enum {
 @property (nonatomic) BOOL hasMoreUpdates;
 @property (nonatomic, strong) NSMutableArray* itemsToBulkUpdate;
 
+@property (nonatomic) int retryCount;
+
 @property (nonatomic, strong) NSMutableArray* nearbyLocations;
 @property (nonatomic, strong) NSMutableArray* favoriteLocations;
 
