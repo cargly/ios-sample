@@ -20,6 +20,7 @@
         <attribute name="occurred" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="odometer" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="readOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="activities" inverseEntity="Vehicle" syncable="YES"/>
@@ -52,6 +53,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="odometer" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="readOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Activity" inverseName="vehicle" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="WorkDetail" syncable="YES">
@@ -64,8 +66,8 @@
     <elements>
         <element name="Activity" positionX="0" positionY="0" width="0" height="0"/>
         <element name="SyncLog" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Vehicle" positionX="0" positionY="0" width="0" height="0"/>
         <element name="WorkDetail" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

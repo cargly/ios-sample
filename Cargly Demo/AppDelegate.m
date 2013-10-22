@@ -32,7 +32,7 @@
     self.controller.managedObjectContext = self.managedObjectContext;
     
     // init cargly
-    
+#warning Provide your app id below and make sure your app has a URL Scheme that matches.
     [CarglyCore initCargly:@"RQ9cUrUCnoWRCEiMlDfO69VXmWnZlKx3" withSyncDelegate:self]; // dev test
     
     // listen for changes to core data object
@@ -225,6 +225,8 @@
     // skip sync log entries
     if ([[object entity].name isEqualToString:@"SyncLog"]) return;
     if ([[object entity].name isEqualToString:@"WorkDetail"]) return;
+    // skip records that are read-only
+    if ([object valueForKey:@"readOnly"] && [[object valueForKey:@"readOnly"] boolValue]) return;
     
     NSString* localId = [self getUriStringForManagedObject:object];
 
@@ -603,6 +605,10 @@
             [localObj setValue:[CarglyCore fromCarglyTimestamp:[remoteObj objectForKey:@"created"]] forKey:@"created"];
             [localObj setValue:remoteUrl forKey:@"cid"];
             [localObj setValue:[remoteObj objectForKey:@"version"] forKey:@"cver"];
+            
+            if ([remoteObj objectForKey:@"read_only"]) {
+                [localObj setValue:[remoteObj objectForKey:@"read_only"] forKey:@"readOnly"];
+            }
             
             copier(remoteType, localObj, remoteObj);
         }
